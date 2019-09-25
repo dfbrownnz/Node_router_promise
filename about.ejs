@@ -1,0 +1,93 @@
+<!-- views/pages/about.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+<div class="row">
+    <div class="col-sm-4">    
+        <div class="well">
+            <h3>Genre to search:</h3><p><%= username %></p>
+            <form method="POST" action="/submit-form">
+                <input type="text" name="username" />
+                <input type="submit" value="Submito"/>
+              </form>
+            <h3>about.ejs </h3>
+            <p>Welcome to templating using EJS</p>
+            
+        </div>
+        
+    </div>
+
+    <div class="col-sm-4">        
+        <div class="well">
+            <h3>Title to search:</h3><p><%= username %></p>
+            <form method="POST" action="/submit-form">
+                <input type="text" name="username" />
+                <input type="submit" />
+              </form>
+              <br>
+            1. cd  /home/dfbrownnz/node/ejs/
+            <br>
+            2. nodemon server.js 
+        </div>
+    </div>
+
+</div>
+
+    
+
+<div class="table-responsive">          
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+        <% bookresult.forEach(function(book) { %>
+            <tr>  <td><%= book.title %> </td> <td><%= book.author %></td>  <td><%= book.genre %></td> </tr>
+        <% }); %>
+    
+    </tbody>
+    </table>
+    </div>
+  </div>
+
+
+
+  <form id="tableForm" action="/salary-sheet" method="post">
+    <select class="selectpicker" data-style="btn-info" name="selectpicker">
+        <optgroup label="Select Table">
+            <option value="">Select Month Year</option>
+            <option value="Jan">Jan</option>
+            <option value="Feb">Feb</option>
+            <option value="Mar">Mar</option>
+        </optgroup>
+    </select>
+    <input type="submit" value="Submit" />
+</form>
+
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>
